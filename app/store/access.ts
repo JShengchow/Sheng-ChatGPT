@@ -31,6 +31,7 @@ const DEFAULT_OPENAI_URL =
 console.log("[API] default openai url", DEFAULT_OPENAI_URL);
 const usp = new URLSearchParams(window.location.hash.split("?")[1])
 const DEFAULT_CODE = usp.get('code') ? usp.get('code') : ""
+console.log("[API] default code", DEFAULT_OPENAI_URL);
 
 export const useAccessStore = create<AccessControlStore>()(
   persist(
