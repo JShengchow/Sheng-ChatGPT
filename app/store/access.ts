@@ -6,7 +6,7 @@ import { BOT_HELLO } from "./chat";
 import { getClientConfig } from "../config/client";
 
 export interface AccessControlStore {
-  accessCode: string;
+  accessCode: string | null;
   token: string;
 
   needCode: boolean;
