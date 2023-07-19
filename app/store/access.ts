@@ -6,7 +6,7 @@ import { BOT_HELLO } from "./chat";
 import { getClientConfig } from "../config/client";
 
 export interface AccessControlStore {
-  accessCode: string | null;
+  accessCode: string;
   token: string;
 
   needCode: boolean;
@@ -29,8 +29,12 @@ let fetchState = 0; // 0 not fetch, 1 fetching, 2 done
 const DEFAULT_OPENAI_URL =
   getClientConfig()?.buildMode === "export" ? DEFAULT_API_HOST : "/api/openai/";
 console.log("[API] default openai url", DEFAULT_OPENAI_URL);
-const usp = new URLSearchParams(window.location.hash.split("?")[1])
-const DEFAULT_CODE = usp.get('code') ? usp.get('code') : ""
+
+let DEFAULT_CODE : string = ""
+if(window.location.href.includes('?')) {
+  const usp = new URLSearchParams(window.location.hash.split("?")[1])
+  DEFAULT_CODE = usp.get('code') || ""
+}
 console.log("[API] default code", DEFAULT_OPENAI_URL);
 
 export const useAccessStore = create<AccessControlStore>()(
