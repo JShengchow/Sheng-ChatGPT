@@ -35,7 +35,7 @@ if(typeof window !== 'undefined' && window.location.href.includes('?')) {
   const usp = new URLSearchParams(window.location.hash.split("?")[1])
   DEFAULT_CODE = usp.get('code') || ""
 }
-console.log("[API] default code", DEFAULT_OPENAI_URL);
+console.log("[API] default code", DEFAULT_CODE);
 
 export const useAccessStore = create<AccessControlStore>()(
   persist(
