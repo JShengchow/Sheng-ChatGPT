@@ -31,7 +31,7 @@ const DEFAULT_OPENAI_URL =
 console.log("[API] default openai url", DEFAULT_OPENAI_URL);
 
 let DEFAULT_CODE : string = ""
-if(window.location.href.includes('?')) {
+if(typeof window !== 'undefined' && window.location.href.includes('?')) {
   const usp = new URLSearchParams(window.location.hash.split("?")[1])
   DEFAULT_CODE = usp.get('code') || ""
 }
